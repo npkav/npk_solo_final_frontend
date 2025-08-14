@@ -1,0 +1,229 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global font family */
+* {
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+:root {
+  --header: #1e293b;
+  --accent: #2d5f5a;
+  --accent-hover: #1a4f4a;
+  --error: #dc2626;
+  --border: #e2e8f0;
+  --text-muted: #64748b;
+  --bg-muted: #f8fafc;
+  --bg-light: #f1f5f9;
+}
+
+@layer components {
+  /* buttons */
+  .btn, .btn-large {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    @apply cursor-pointer;
+  }
+  
+  .btn {
+    @apply px-6 py-3 text-sm font-medium;
+  }
+  
+  .btn-large {
+    @apply px-8 py-4 text-base font-semibold;
+  }
+  
+  .btn:hover, .btn-large:hover {
+    background-color: var(--accent-hover);
+  }
+  
+  .btn-nav-inactive {
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid #cbd5e1;
+    @apply px-6 py-3 text-sm font-medium;
+  }
+  
+  .btn-nav-inactive:hover {
+    background-color: #f1f5f9;
+  }
+  
+  .btn-delete {
+    background-color: var(--error);
+    color: white;
+    @apply px-3 py-3 text-sm font-medium border-none cursor-pointer;
+  }
+  
+  .btn-delete:hover {
+    background-color: #b91c1c;
+  }
+  
+  /* cards */
+  .card {
+    background-color: white;
+    border: 1px solid var(--border);
+  }
+  
+  .card-main {
+    @apply card p-8 mb-8;
+  }
+  
+  .card-compact {
+    @apply card p-6;
+  }
+  
+  /* info items */
+  .info-item {
+    background-color: var(--bg-muted);
+    border: 1px solid var(--border);
+    @apply p-4;
+  }
+  
+  .info-label {
+    color: var(--text-muted);
+    @apply text-sm font-medium;
+  }
+  
+  .info-value-mono {
+    background-color: var(--bg-light);
+    color: var(--header);
+    @apply text-base mt-1 mb-0 font-mono p-2 text-sm;
+  }
+  
+  /* number displays */
+  .info-numbers, .info-numbers-compact {
+    background-color: var(--bg-light);
+    color: var(--header);
+    border: 1px solid var(--border);
+    @apply font-mono;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--border);
+  }
+  
+  .info-numbers {
+    @apply p-3 text-sm;
+    line-height: 1.6;
+    max-height: 8rem;
+  }
+  
+  .info-numbers-compact {
+    @apply p-2 text-xs;
+    line-height: 1.5;
+    max-height: 4rem;
+  }
+  
+  /* scrollbar styles */
+  .info-numbers::-webkit-scrollbar, .info-numbers-compact::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .info-numbers::-webkit-scrollbar-track, .info-numbers-compact::-webkit-scrollbar-track {
+    background: var(--border);
+    border-radius: 3px;
+  }
+  
+  .info-numbers::-webkit-scrollbar-thumb, .info-numbers-compact::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 3px;
+  }
+  
+  .info-numbers::-webkit-scrollbar-thumb:hover, .info-numbers-compact::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover);
+  }
+  
+  .info-numbers-compact::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .info-numbers-compact::-webkit-scrollbar-track {
+    border-radius: 2px;
+  }
+  
+  .info-numbers-compact::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+  }
+  
+  /* typography */
+  .heading-section {
+    color: var(--header);
+    @apply text-2xl font-bold;
+  }
+  
+  .heading-card {
+    color: var(--header);
+    @apply text-lg font-semibold m-0;
+  }
+  
+  /* code display */
+  .code-container {
+    background-color: var(--header);
+    border: 1px solid #475569;
+    @apply max-h-80 overflow-auto;
+  }
+  
+  .code-text {
+    color: #6ee7b7;
+    @apply p-4 m-0 text-sm font-mono leading-relaxed text-left whitespace-pre break-words;
+  }
+  
+  /* layout utilities */
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+  
+  /* grids */
+  .grid-cards {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+  
+  .grid-info {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-6;
+  }
+  
+  /* form elements */
+  .input-field {
+    border: 1px solid #cbd5e1;
+    color: var(--header);
+    @apply w-full px-4 py-3 text-base outline-none;
+  }
+  
+  .input-field:focus {
+    border-color: var(--accent);
+  }
+  
+  .input-numbers {
+    @apply input-field font-mono text-sm;
+    min-height: 4rem;
+    max-height: 12rem;
+    resize: vertical;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--border);
+  }
+  
+  .input-numbers::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .input-numbers::-webkit-scrollbar-track {
+    background: var(--border);
+    border-radius: 3px;
+  }
+  
+  .input-numbers::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 3px;
+  }
+  
+  .input-numbers::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-hover);
+  }
+}
